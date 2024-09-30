@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Agregar Producto a la Orden</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header class="bg-dark text-white text-center py-3">
+  <h1>Agregar/Editar Producto en la Orden</h1>
+  <nav>
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link text-white" th:href="@{/}">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" th:href="@{/orden-producto}">Orden Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" th:href="@{/producto}">Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" th:href="@{/orden}">Órdenes</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<div class="container my-4">
+  <form th:action="@{/orden-producto/guardar}" th:object="${ordenProducto}" method="post">
+    <div class="form-group">
+      <label>Producto</label>
+      <select th:field="*{producto}" class="form-control">
+        <option th:each="producto : ${productos}" th:value="${producto}" th:text="${producto.nombre}"></option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Orden</label>
+      <select th:field="*{orden}" class="form-control">
+        <option th:each="orden : ${ordenes}" th:value="${orden}" th:text="${orden.id}"></option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Cantidad</label>
+      <input type="number" th:field="*{cantidad}" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
+<footer class="bg-dark text-white text-center py-3">
+  <p>&copy; 2024 DWF404</p>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

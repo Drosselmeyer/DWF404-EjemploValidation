@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Página Inicial</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header class="bg-dark text-white text-center py-3">
+  <h1>Bienvenido a la Aplicación</h1>
+  <nav>
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link text-white" th:href="@{/}">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" th:href="@{/orden-producto}">Orden Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" th:href="@{/producto}">Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" th:href="@{/orden}">Órdenes</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<main class="container text-center py-5">
+  <h2>Descripción de la Aplicación</h2>
+  <p>Esta aplicación permite gestionar órdenes y productos de manera fácil y eficiente.</p>
+</main>
+<footer class="bg-dark text-white text-center py-3">
+  <p>&copy; 2024 DWF404</p>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

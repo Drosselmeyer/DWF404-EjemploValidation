@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listado de Órdenes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header class="bg-dark text-white text-center py-3">
+    <h1>Listado de Órdenes</h1>
+    <nav>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/static}">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/templates/orden}">Órdenes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/templates/producto}">Productos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/orden-producto}">Orden Productos</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="container my-4">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Cliente</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="orden : ${ordenes}">
+            <td th:text="${orden.id}"></td>
+            <td th:text="${orden.fecha}"></td>
+            <td th:text="${orden.cliente.nombre}"></td>
+            <td>
+                <a th:href="@{/orden/editar/{id}(id=${orden.id})}" class="btn btn-warning">Editar</a>
+                <a th:href="@{/orden/eliminar/{id}(id=${orden.id})}"
+                   class="btn btn-danger"
+                   onclick="return confirm('¿Estás seguro de que deseas eliminar esta orden?');">
+                    Eliminar
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/orden/nuevo" class="btn btn-primary">Agregar nueva orden</a>
+</div>
+<footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2024 DWF404</p>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
